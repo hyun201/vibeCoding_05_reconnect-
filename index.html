@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Re:Connect — 동창회 초대장. 2032년 10월 1일(토) 오후 5시, 창경궁에서 소중한 인연을 다시 잇습니다." />
+  <title>Re:Connect — 동창회 초대장</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+
+<div class="page-wrapper">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero">
+    <div class="hero-emblem">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4 C24 4 20 12 24 16 C28 12 24 4 24 4Z" opacity=".9"/>
+        <path d="M44 24 C44 24 36 20 32 24 C36 28 44 24 44 24Z" opacity=".9"/>
+        <path d="M24 44 C24 44 28 36 24 32 C20 36 24 44 24 44Z" opacity=".9"/>
+        <path d="M4 24 C4 24 12 28 16 24 C12 20 4 24 4 24Z" opacity=".9"/>
+        <path d="M37.6 10.4 C37.6 10.4 30.4 14.4 31.6 19.2 C36.4 18 37.6 10.4 37.6 10.4Z" opacity=".7"/>
+        <path d="M37.6 37.6 C37.6 37.6 33.6 30.4 28.8 31.6 C30 36.4 37.6 37.6 37.6 37.6Z" opacity=".7"/>
+        <path d="M10.4 37.6 C10.4 37.6 17.6 33.6 16.4 28.8 C11.6 30 10.4 37.6 10.4 37.6Z" opacity=".7"/>
+        <path d="M10.4 10.4 C10.4 10.4 14.4 17.6 19.2 16.4 C18 11.6 10.4 10.4 10.4 10.4Z" opacity=".7"/>
+        <circle cx="24" cy="24" r="4"/>
+      </svg>
+    </div>
+
+    <p class="hero-subtitle">동창회 초대장 · Alumni Reunion</p>
+    <h1 class="hero-title">Re<span class="hero-colon">:</span>Connect</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-body">
+      세월이 흘러도 변하지 않는 우리들의 이야기,<br>
+      <strong style="color:var(--gold-light)">Re:Connect</strong>에 초대합니다.<br><br>
+      강의실과 교정을 함께 누비며 웃고 울던<br>
+      그때의 소중한 추억을 기억하시나요?<br><br>
+      오랜만에 흩어져 있던 반가운 얼굴들이<br>
+      한자리에 모여 서로의 근황을 나눕니다.<br><br>
+      맛있는 음식과 즐거운 이야기가 준비되어 있으니<br>
+      부담 없이 오셔서 자리를 빛내주세요.
+    </p>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ PHOTO SLIDER ══════════ -->
+  <section class="section photo-section" id="photos">
+    <span class="section-label reveal">사진 세션</span>
+    <h2 class="section-title reveal">우리들의 추억</h2>
+
+    <div class="slider-wrapper reveal">
+      <button class="slider-arrow prev" id="prevBtn" aria-label="이전 사진">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="slider-arrow next" id="nextBtn" aria-label="다음 사진">
+        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+
+      <div class="slider-track" id="sliderTrack">
+        <div class="slide active">
+          <img src="pictures/입학.jpg" alt="입학" loading="eager" />
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">📸 입학 — 새로운 시작</div>
+        </div>
+        <div class="slide">
+          <img src="pictures/봄소풍.jpg" alt="봄소풍" loading="lazy" />
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">🌸 봄소풍 — 푸른 날들</div>
+        </div>
+        <div class="slide">
+          <img src="pictures/장기자랑.jpg" alt="장기자랑" loading="lazy" />
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">🎤 장기자랑 — 빛나던 순간</div>
+        </div>
+        <div class="slide">
+          <img src="pictures/졸업.jpg" alt="졸업" loading="lazy" />
+          <div class="slide-overlay"></div>
+          <div class="slide-caption">🎓 졸업 — 찬란한 마무리</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-dots reveal" id="sliderDots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+      <div class="dot" data-index="3"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ COUNTDOWN ══════════ -->
+  <section class="section countdown-section" id="countdown">
+    <span class="section-label reveal">카운트다운 세션</span>
+    <h2 class="section-title reveal">행사까지 남은 시간</h2>
+
+    <div class="event-info reveal">
+      <div class="event-date-badge">2032년 10월 1일 (토) 오후 5시</div>
+      <p class="event-venue">📍 창경궁</p>
+    </div>
+
+    <div class="countdown-grid reveal-stagger" id="countdownGrid">
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-days">--</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-hours">--</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-mins">--</span>
+        <span class="countdown-label">Mins</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-num" id="cd-secs">--</span>
+        <span class="countdown-label">Secs</span>
+      </div>
+    </div>
+
+    <div class="countdown-finished" id="countdownFinished">
+      🎉 오늘이 바로 그날입니다!
+    </div>
+  </section>
+
+  <!-- ══════════ MAP ══════════ -->
+  <section class="section map-section" id="map">
+    <span class="section-label reveal">지도 세션</span>
+    <h2 class="section-title reveal">오시는 길</h2>
+
+    <div class="map-info-card reveal">
+      <div class="map-info-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="map-info-text">
+        <h3>창경궁</h3>
+        <p>서울특별시 종로구 창경궁로 185<br>지하철 4호선 혜화역 3번 출구 도보 10분</p>
+      </div>
+    </div>
+
+    <div class="map-container reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.456!2d126.9927292!3d37.5791319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2d8b0adf775%3A0x11df49bc37f1e273!2z7Iqk6rWQ6rWQ!5e0!3m2!1sko!2skr!4v1696140000000!5m2!1sko!2skr"
+        title="창경궁 Google 지도"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <a
+      href="https://map.naver.com/p/search/%EC%B0%BD%EA%B2%BD%EA%B6%81"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="map-open-btn reveal"
+    >
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      네이버 지도에서 열기
+    </a>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <p class="footer-title">Re:Connect</p>
+    <p class="footer-subtitle">2032 · Alumni Reunion</p>
+    <a href="mailto:" class="rsvp-btn">✉️ &nbsp;참석 의사 전달하기</a>
+    <p class="footer-copy">© 2032 Re:Connect Alumni Reunion. All rights reserved.</p>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<script src="script.js"></script>
+</body>
+</html>
